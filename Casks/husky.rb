@@ -1,6 +1,6 @@
 cask "husky" do
-  version "0.15.1"
-  sha256 "4b5b21f40d48fb5c992beec8933eb7224a45e912e7c07b20a46fcb3d25c092c6"
+  version "0.15.2"
+  sha256 "60a8c3df7a0bbf554558e0100562a938282e2fde28e562203a6a0937259bd1c0"
 
   url "https://github.com/Rishikhesh/husky/releases/download/v#{version}/Husky-#{version}.dmg"
   name "Husky"
