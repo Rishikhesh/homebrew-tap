@@ -13,14 +13,16 @@ cask "husky" do
   end
 
   depends_on arch: :arm64
+  depends_on :macos
 
   app "Husky.app"
 
   # signed with a developer certificate but not notarized: without this,
   # Gatekeeper refuses to open the downloaded app.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Husky.app"]
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:           ["-dr", "com.apple.quarantine", "{{appdir}}/Husky.app"],
+        writable_paths: ["{{appdir}}/Husky.app"]
   end
 
   uninstall quit: "com.rishikhesh.husky"
